@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS clouds5;
+CREATE DATABASE clouds5;
 \c clouds5;
 
 CREATE TABLE type_user(

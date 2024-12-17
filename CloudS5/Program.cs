@@ -15,6 +15,8 @@ builder.Services.AddHttpContextAccessor(); // Ajout de l'accès au contexte HTTP
 
 // Ajouter les contrôleurs avec les vues
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<EmailService>();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 var app = builder.Build();
 

@@ -1,0 +1,14 @@
+Inscription et Validation Email : L'utilisateur s'inscrit et confirme son email.
+    État : À faire.
+
+Authentification avec PIN (90 secondes) : Envoyer un code PIN par email pour confirmer l'identité.
+    État : Fait.
+
+Gestion du compte utilisateur : Permettre à l'utilisateur de modifier ses informations.
+    État : À faire.
+
+Sécurisation : Hachage des mots de passe, gestion de la durée des sessions, et limitation des tentatives de connexion.
+    État : À faire.
+
+Swagger : Documenter l'API.
+    État : À faire.
