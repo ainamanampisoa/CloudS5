@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS cloud_s5;
-\c cloud_s5;
+CREATE DATABASE IF NOT EXISTS clouds5;
+\c clouds5;
 
 CREATE TABLE type_user(
    id_type SERIAL,
