@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj": {}
+    "C:\\Study\\CloudS5\\CloudS5\\CloudS5\\CloudS5.csproj": {}
   },
   "projects": {
-    "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj": {
+    "C:\\Study\\CloudS5\\CloudS5\\CloudS5\\CloudS5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj",
+        "projectUniqueName": "C:\\Study\\CloudS5\\CloudS5\\CloudS5\\CloudS5.csproj",
         "projectName": "CloudS5",
-        "projectPath": "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj",
+        "projectPath": "C:\\Study\\CloudS5\\CloudS5\\CloudS5\\CloudS5.csproj",
         "packagesPath": "C:\\Users\\NEC\\.nuget\\packages\\",
-        "outputPath": "C:\\Study\\CloudS5\\CloudS5\\obj\\",
+        "outputPath": "C:\\Study\\CloudS5\\CloudS5\\CloudS5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NEC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,17 +43,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MailKit": {
+            "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[4.0.0, )"
+              "version": "[8.0.6, )"
             },
-            "MimeKit": {
+            "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[4.0.0, )"
-            },
-            "Npgsql": {
-              "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[6.4.0, )"
             }
           },
           "imports": [
