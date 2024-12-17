@@ -1,2 +1,5 @@
 dotnet add package Npgsql
+dotnet add package MailKit
+dotnet add package MimeKit
+
 n'oublier pas de modifier le password dans la connection postgres
