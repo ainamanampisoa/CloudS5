@@ -1,0 +1,28 @@
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var host = CreateHostBuilder(args).Build();
+        var emailService = host.Services.GetRequiredService<EmailService>();
+
+        string recipientEmail = "tsikiniony.jr@gmail.com";
+        string subject = "Votre newsletter est prête !";
+        string htmlContent = "<html><body><h1>Bonjour !</h1><p>Ceci est un test d'envoi de newsletter.</p></body></html>";
+
+        emailService.SendEmail(recipientEmail, subject, htmlContent);
+
+        Console.WriteLine("Email envoyé !");
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((context, config) =>
+            {
+                config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            })
+            .ConfigureServices((hostContext, services) =>
+            {
+                services.Configure<EmailSettings>(hostContext.Configuration.GetSection("EmailSettings"));
+                services.AddSingleton<EmailService>();
+            });
+}
