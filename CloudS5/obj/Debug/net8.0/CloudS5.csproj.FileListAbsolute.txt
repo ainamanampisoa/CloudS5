@@ -28,3 +28,15 @@ R:\S5\Mr.Rojo\Cloud\CloudS5\obj\Debug\net8.0\refint\CloudS5.dll
 R:\S5\Mr.Rojo\Cloud\CloudS5\obj\Debug\net8.0\CloudS5.pdb
 R:\S5\Mr.Rojo\Cloud\CloudS5\obj\Debug\net8.0\CloudS5.genruntimeconfig.cache
 R:\S5\Mr.Rojo\Cloud\CloudS5\obj\Debug\net8.0\ref\CloudS5.dll
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.csproj.AssemblyReference.cache
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.AssemblyInfoInputs.cache
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.AssemblyInfo.cs
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.csproj.CoreCompileInputs.cache
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.MvcApplicationPartsAssemblyInfo.cache
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.RazorAssemblyInfo.cache
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.RazorAssemblyInfo.cs
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.sourcelink.json
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.dll
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\refint\CloudS5.dll
+D:\WORK\CloudS5\CloudS5\obj\Debug\net8.0\CloudS5.pdb
