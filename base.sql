@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS cloud_s5;
+\c cloud_s5;
+
 CREATE TABLE type_user(
    id_type SERIAL,
    nom_type VARCHAR(50)  NOT NULL,
