@@ -1,5 +1,10 @@
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(5123);
+});
 // Ajouter les services nécessaires pour la session et l'injection de dépendances
 builder.Services.AddDistributedMemoryCache(); // Utilisation de la mémoire pour stocker les données de session
 builder.Services.AddSession(options =>
