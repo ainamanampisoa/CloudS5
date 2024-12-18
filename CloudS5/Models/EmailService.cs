@@ -1,6 +1,7 @@
 using MailKit.Net.Smtp;
 using MimeKit;
 using Microsoft.Extensions.Options;
+using MailKit.Security; 
 
 public class EmailService
 {
@@ -26,9 +27,16 @@ public class EmailService
 
         using (var client = new SmtpClient())
         {
-            client.Connect(_emailSettings.SmtpHost, _emailSettings.SmtpPort, _emailSettings.SmtpSsl);
+            // Utilisation de STARTTLS avec le port 587
+            client.Connect(_emailSettings.SmtpHost, 465, SecureSocketOptions.SslOnConnect);
+
+            // Authentification avec le nom d'utilisateur et mot de passe
             client.Authenticate(_emailSettings.SmtpUsername, _emailSettings.SmtpPassword);
+
+            // Envoi du message
             client.Send(emailMessage);
+
+            // Déconnexion après l'envoi
             client.Disconnect(true);
         }
     }

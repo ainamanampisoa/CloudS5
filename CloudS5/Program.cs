@@ -1,5 +1,10 @@
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(5123);
+});
+
 // Ajouter les services nécessaires pour la session et l'injection de dépendances
 builder.Services.AddDistributedMemoryCache(); // Utilisation de la mémoire pour stocker les données de session
 builder.Services.AddSession(options =>
@@ -15,8 +20,12 @@ builder.Services.AddHttpContextAccessor(); // Ajout de l'accès au contexte HTTP
 
 // Ajouter les contrôleurs avec les vues
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<EmailService>();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 var app = builder.Build();
+var dbConnection = new CloudS5.Models.DatabaseConnection();
+dbConnection.TestConnection();
 
 // Configurer le pipeline de traitement des requêtes HTTP
 if (!app.Environment.IsDevelopment())

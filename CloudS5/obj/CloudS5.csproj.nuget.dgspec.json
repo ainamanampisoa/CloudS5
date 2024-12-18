@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WORK\\CloudS5\\CloudS5\\CloudS5.csproj": {}
+    "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj": {}
   },
   "projects": {
-    "D:\\WORK\\CloudS5\\CloudS5\\CloudS5.csproj": {
+    "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WORK\\CloudS5\\CloudS5\\CloudS5.csproj",
+        "projectUniqueName": "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj",
         "projectName": "CloudS5",
-        "projectPath": "D:\\WORK\\CloudS5\\CloudS5\\CloudS5.csproj",
-        "packagesPath": "C:\\Users\\Aina Manampisoa\\.nuget\\packages\\",
-        "outputPath": "D:\\WORK\\CloudS5\\CloudS5\\obj\\",
+        "projectPath": "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj",
+        "packagesPath": "C:\\Users\\NEC\\.nuget\\packages\\",
+        "outputPath": "C:\\Study\\CloudS5\\CloudS5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Aina Manampisoa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\NEC\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -43,6 +43,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            },
             "Npgsql": {
               "target": "Package",
               "version": "[9.0.2, )"

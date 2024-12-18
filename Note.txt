@@ -1,0 +1,83 @@
+Pour DotNet
+
+
+DockerFile :
+# Étape 1 : Construire l'application .NET
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copier le fichier projet (.csproj) et restaurer les dépendances
+COPY *.csproj ./ 
+RUN dotnet restore
+
+# Ajouter les packages nécessaires
+RUN dotnet add package Npgsql
+RUN dotnet add package MailKit
+RUN dotnet add package MimeKit
+
+# Copier tout le reste du code source et publier l'application
+COPY . ./ 
+RUN dotnet publish -c Release -o /app
+
+# Étape 2 : Configurer l'image runtime pour l'application .NET
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+
+# Copier l'application construite depuis l'étape de build
+COPY --from=build /app ./
+#Reska port
+ENV ASPNETCORE_URLS=http://+:8080
+# Exposer le port 8080 de l'application
+EXPOSE 8080
+
+# Démarrer l'application
+ENTRYPOINT ["dotnet", "MyMvcApp.dll"]
+
+
+Docker-compose.yml : 
+services:
+  # Service PostgreSQL
+  postgres-db:
+    image: postgres:17
+    environment:
+    #Donnees Postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: clouds5
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      #Le fichier init no asina ny base rehetra 
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql 
+
+  # Service de l'application .NET (MVC)
+  myapp:
+    build: .
+    ports:
+    #Port henoinle serveur Web
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres-db;Port=5432;Database=clouds5;Username=postgres;Password=postgres
+
+# Volume persistant pour PostgreSQL
+volumes:
+  postgres-data:
+
+Docker-compose up
+Docker-compose down
+
+pour Postgres
+
+
+Lancer postgres:
+docker exec -it clouds5-postgres-db-1 psql -U postgres -d clouds5
+AppSettings :
+Ampiana
+"ConnectionStrings": {
+    "DefaultConnection": "Host=postgres-db;Port=5432;Database=clouds5;Username=postgres;Password=postgres"
+  },
+Docker-compose up -d
+Docker-compose down -v

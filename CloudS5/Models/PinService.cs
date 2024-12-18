@@ -19,7 +19,7 @@ public class PinService
     }
 
     // Stocke le code PIN dans la session avec une durée de vie configurée
-    public void StorePinInSession(int pin, int sessionDurationInMinutes)
+    public void StorePinInSession(int pin, int sessionDurationInSeconds)
     {
         var context = _httpContextAccessor.HttpContext;
 
@@ -27,7 +27,7 @@ public class PinService
         context.Session.SetInt32("PinCode", pin);
 
         // Enregistrer l'heure d'expiration de la session
-        var expirationTime = DateTime.Now.AddMinutes(sessionDurationInMinutes);
+        var expirationTime = DateTime.Now.AddSeconds(sessionDurationInSeconds);
         context.Session.SetString("PinExpirationTime", expirationTime.ToString("o"));
     }
 
