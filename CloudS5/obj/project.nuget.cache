@@ -1,17 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "vZLaVJufOmM=",
+  "dgSpecHash": "V9rLcWRDZQ4=",
   "success": true,
-  "projectFilePath": "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj",
+  "projectFilePath": "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ME-PC\\.nuget\\packages\\bouncycastle.cryptography\\2.5.0\\bouncycastle.cryptography.2.5.0.nupkg.sha512",
-    "C:\\Users\\ME-PC\\.nuget\\packages\\mailkit\\4.9.0\\mailkit.4.9.0.nupkg.sha512",
-    "C:\\Users\\ME-PC\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
-    "C:\\Users\\ME-PC\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
-    "C:\\Users\\ME-PC\\.nuget\\packages\\mimekit\\4.9.0\\mimekit.4.9.0.nupkg.sha512",
-    "C:\\Users\\ME-PC\\.nuget\\packages\\npgsql\\9.0.2\\npgsql.9.0.2.nupkg.sha512",
-    "C:\\Users\\ME-PC\\.nuget\\packages\\system.formats.asn1\\8.0.1\\system.formats.asn1.8.0.1.nupkg.sha512",
-    "C:\\Users\\ME-PC\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.1\\system.security.cryptography.pkcs.8.0.1.nupkg.sha512"
+    "C:\\Users\\NEC\\.nuget\\packages\\bouncycastle.cryptography\\2.5.0\\bouncycastle.cryptography.2.5.0.nupkg.sha512",
+    "C:\\Users\\NEC\\.nuget\\packages\\mailkit\\4.9.0\\mailkit.4.9.0.nupkg.sha512",
+    "C:\\Users\\NEC\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\NEC\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\NEC\\.nuget\\packages\\mimekit\\4.9.0\\mimekit.4.9.0.nupkg.sha512",
+    "C:\\Users\\NEC\\.nuget\\packages\\npgsql\\9.0.2\\npgsql.9.0.2.nupkg.sha512",
+    "C:\\Users\\NEC\\.nuget\\packages\\system.formats.asn1\\8.0.1\\system.formats.asn1.8.0.1.nupkg.sha512",
+    "C:\\Users\\NEC\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.1\\system.security.cryptography.pkcs.8.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,11 +1,11 @@
 using System;
 using Npgsql;
 
-namespace Kidoro.Models
+namespace CloudS5.Models
 {
     public class DatabaseConnection
     {
-        private string postgresConnectionString = "Host=localhost;Database=clouds5;Username=postgres;Password=aina;Pooling=true;";
+        private string postgresConnectionString = "Host=postgres-db;Port=5432;Database=clouds5;Username=postgres;Password=postgres";
 
         public NpgsqlConnection GetPostgresConnection()
         {

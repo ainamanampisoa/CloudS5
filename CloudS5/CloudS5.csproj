@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Npgsql" Version="9.0.2" />
     <PackageReference Include="MailKit" Version="4.9.0" />
     <PackageReference Include="MimeKit" Version="4.9.0" />
-    <PackageReference Include="Npgsql" Version="9.0.2" />
   </ItemGroup>
 
 </Project>

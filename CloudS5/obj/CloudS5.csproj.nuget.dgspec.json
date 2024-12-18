@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj": {}
+    "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj": {}
   },
   "projects": {
-    "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj": {
+    "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj",
+        "projectUniqueName": "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj",
         "projectName": "CloudS5",
-        "projectPath": "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj",
-        "packagesPath": "C:\\Users\\ME-PC\\.nuget\\packages\\",
-        "outputPath": "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\obj\\",
+        "projectPath": "C:\\Study\\CloudS5\\CloudS5\\CloudS5.csproj",
+        "packagesPath": "C:\\Users\\NEC\\.nuget\\packages\\",
+        "outputPath": "C:\\Study\\CloudS5\\CloudS5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ME-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\NEC\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
