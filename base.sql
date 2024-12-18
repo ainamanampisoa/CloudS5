@@ -11,7 +11,7 @@ CREATE TABLE utilisateur(
    id_user SERIAL,
    email VARCHAR(60) ,
    username VARCHAR(50)  NOT NULL,
-   password VARCHAR(50)  NOT NULL,
+   password VARCHAR(250)  NOT NULL,
    id_type INTEGER NOT NULL,
    PRIMARY KEY(id_user, email),
    FOREIGN KEY(id_type) REFERENCES type_user(id_type)

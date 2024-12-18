@@ -189,6 +189,45 @@ public class EmailController : ControllerBase
             return StatusCode(500, $"Error validating PIN or registering user: {ex.Message}");
         }
     }
+
+    [HttpPost("updateUser")]
+    public IActionResult UpdateUser([FromBody] StoreUserRequest request)
+    {
+        try
+        {
+            // Vérifier si l'email est présent dans la requête
+            string email = request.Email;
+            if (string.IsNullOrEmpty(email))
+            {
+                return BadRequest(new { message = "Email is required." });
+            }
+
+            // Créer une instance de la classe Utilisateur avec les nouvelles informations
+            var utilisateur = new Utilisateur
+            {
+                Email = email, // Email fourni dans la requête
+                Password = request.Password,
+                Username = request.Username,
+                IdType = request.IdType
+            };
+
+            // Mettre à jour l'utilisateur dans la base de données
+            bool isUpdated = utilisateur.UpdateUtilisateur(); // Méthode de mise à jour dans le modèle Utilisateur
+
+            if (isUpdated)
+            {
+                return Ok(new { message = "User information updated successfully." });
+            }
+            else
+            {
+                return BadRequest(new { message = "Failed to update user information." });
+            }
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Error updating user information: {ex.Message}");
+        }
+    }
 }
 
 // Modèle pour la requête d'enregistrement d'utilisateur

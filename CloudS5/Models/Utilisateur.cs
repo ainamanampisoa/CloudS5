@@ -15,6 +15,9 @@ public class Utilisateur
     {
         try
         {
+            // Hasher le mot de passe avant de l'insérer dans la base de données
+            string hashedPassword = Hashing.HashString(Password);
+
             // Ouvrir une connexion avec PostgreSQL
             using (var connection = new DatabaseConnection().GetPostgresConnection())
             {
@@ -29,7 +32,7 @@ public class Utilisateur
                     // Ajouter les paramètres à la commande
                     command.Parameters.AddWithValue("Email", Email);
                     command.Parameters.AddWithValue("Username", Username);
-                    command.Parameters.AddWithValue("Password", Password);
+                    command.Parameters.AddWithValue("Password", hashedPassword); // Utiliser le mot de passe hashé
                     command.Parameters.AddWithValue("IdType", IdType);
 
                     // Exécuter la commande
@@ -55,19 +58,26 @@ public class Utilisateur
                 connection.Open();
                 using (var command = connection.CreateCommand())
                 {
-                    // Requête SQL pour vérifier si l'utilisateur existe
+                    // Requête SQL pour récupérer le mot de passe hashé de l'utilisateur
                     command.CommandText = @"
-                        SELECT COUNT(*) 
+                        SELECT password 
                         FROM utilisateur 
-                        WHERE email = @Email AND password = @Password";
+                        WHERE email = @Email";
                     
                     // Ajouter les paramètres à la commande
                     command.Parameters.AddWithValue("Email", email);
-                    command.Parameters.AddWithValue("Password", password);
 
-                    // Exécuter la commande et vérifier si un utilisateur existe
-                    var result = (long)command.ExecuteScalar();
-                    return result > 0; // Retourne true si au moins un utilisateur existe
+                    // Exécuter la commande et récupérer le mot de passe hashé
+                    var result = command.ExecuteScalar();
+                    if (result == null)
+                    {
+                        return false; // Utilisateur non trouvé
+                    }
+
+                    string storedHashedPassword = result.ToString();
+
+                    // Comparer les hashs
+                    return Hashing.CompareHashes(storedHashedPassword, Hashing.HashString(password));
                 }
             }
         }
@@ -75,6 +85,42 @@ public class Utilisateur
         {
             // Gérer les exceptions
             throw new Exception($"Erreur lors de la vérification de l'utilisateur : {ex.Message}", ex);
+        }
+    }
+
+    // Méthode pour mettre à jour les informations utilisateur dans la base de données
+    public bool UpdateUtilisateur()
+    {
+        try
+        {
+            // Hasher le mot de passe avant de le mettre à jour
+            string hashedPassword = Hashing.HashString(Password);
+
+            using (var connection = new DatabaseConnection().GetPostgresConnection()) // Assurez-vous que DatabaseConnection est correctement implémentée
+            {
+                connection.Open(); // Ouvrir la connexion une seule fois
+
+                using (var command = connection.CreateCommand())
+                {
+                    string query = "UPDATE utilisateur SET password = @Password, username = @Username, id_type = @IdType WHERE email = @Email";
+                    command.CommandText = query;
+
+                    // Ajout des paramètres
+                    command.Parameters.AddWithValue("@Password", hashedPassword); // Utiliser le mot de passe hashé
+                    command.Parameters.AddWithValue("@Username", Username);
+                    command.Parameters.AddWithValue("@IdType", IdType);
+                    command.Parameters.AddWithValue("@Email", Email);
+
+                    // Exécuter la commande
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0; // Retourne true si au moins une ligne a été affectée
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Gérer les exceptions
+            throw new Exception($"Erreur lors de la mise à jour de l'utilisateur : {ex.Message}", ex);
         }
     }
 }
