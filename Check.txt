@@ -1,5 +1,5 @@
 Inscription et Validation Email : L'utilisateur s'inscrit et confirme son email.
-    État : À faire.
+    État : Fait.
 
 Authentification avec PIN (90 secondes) : Envoyer un code PIN par email pour confirmer l'identité.
     État : Fait.
