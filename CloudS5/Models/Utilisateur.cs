@@ -43,4 +43,38 @@ public class Utilisateur
             throw new Exception($"Erreur lors de l'insertion de l'utilisateur : {ex.Message}", ex);
         }
     }
+
+    // Méthode pour vérifier si un utilisateur existe avec l'email et le mot de passe fournis
+    public static bool CheckUtilisateur(string email, string password)
+    {
+        try
+        {
+            // Ouvrir une connexion avec PostgreSQL
+            using (var connection = new DatabaseConnection().GetPostgresConnection())
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    // Requête SQL pour vérifier si l'utilisateur existe
+                    command.CommandText = @"
+                        SELECT COUNT(*) 
+                        FROM utilisateur 
+                        WHERE email = @Email AND password = @Password";
+                    
+                    // Ajouter les paramètres à la commande
+                    command.Parameters.AddWithValue("Email", email);
+                    command.Parameters.AddWithValue("Password", password);
+
+                    // Exécuter la commande et vérifier si un utilisateur existe
+                    var result = (long)command.ExecuteScalar();
+                    return result > 0; // Retourne true si au moins un utilisateur existe
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Gérer les exceptions
+            throw new Exception($"Erreur lors de la vérification de l'utilisateur : {ex.Message}", ex);
+        }
+    }
 }
