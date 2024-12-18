@@ -13,7 +13,6 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql 
 
   # Service de l'application .NET (MVC)
-services:
   myapp:
     build: .
     ports:

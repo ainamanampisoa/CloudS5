@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CloudS5")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+064b1871eb0a46426644a24b7c57d5ae391cda66")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8db0fa820d95c3a4a4b63654bc516ed48fcf69ff")]
 [assembly: System.Reflection.AssemblyProductAttribute("CloudS5")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CloudS5")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
