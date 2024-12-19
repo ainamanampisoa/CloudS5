@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -13,8 +14,17 @@ public class EmailController : ControllerBase
         _pinService = pinService;
     }
 
-    // Action pour enregistrer l'utilisateur et envoyer automatiquement un PIN
+    /// <summary>
+    /// Stores user data and sends a PIN to the provided email address.
+    /// </summary>
+    /// <param name="request">The user data for registration.</param>
+    /// <returns>A success message if the operation is successful.</returns>
+
     [HttpPost("sendPin")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(object))]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public IActionResult StoreUser([FromBody] StoreUserRequest request)
     {
         try
@@ -44,6 +54,11 @@ public class EmailController : ControllerBase
 
     // Action pour valider le code PIN
     [HttpPost("pinInscription")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public IActionResult ValidatePin([FromBody] ValidatePinRequest request)
     {
         try
@@ -103,6 +118,11 @@ public class EmailController : ControllerBase
 
     // Action pour vérifier l'utilisateur et envoyer un PIN
     [HttpPost("checkAndSendPin")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public IActionResult CheckAndSendPin([FromBody] CheckUserRequest request)
     {
         try
@@ -149,6 +169,11 @@ public class EmailController : ControllerBase
     }
 
     [HttpPost("pinConnection")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public IActionResult ValidatePinC([FromBody] ValidatePinRequest request)
     {
         try
@@ -191,6 +216,11 @@ public class EmailController : ControllerBase
     }
 
     [HttpPost("updateUser")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public IActionResult UpdateUser([FromBody] StoreUserRequest request)
     {
         try
@@ -233,11 +263,21 @@ public class EmailController : ControllerBase
 // Modèle pour la requête d'enregistrement d'utilisateur
 public class StoreUserRequest
 {
+    [Required]
+    [EmailAddress]
     public string Email { get; set; }
+
+    [Required]
+    [MinLength(6)]
     public string Password { get; set; }
+
+    [Required]
     public string Username { get; set; }
+
+    [Required]
     public int IdType { get; set; }
 }
+
 
 // Modèle pour la validation du code PIN
 public class ValidatePinRequest

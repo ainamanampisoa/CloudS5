@@ -2,4 +2,10 @@ dotnet add package Npgsql
 dotnet add package MailKit
 dotnet add package MimeKit
 
+dotnet add package Swashbuckle.AspNetCore
+
+dotnet add package System.ComponentModel.Annotations
+
+
+
 n'oublier pas de modifier le password dans la connection postgres

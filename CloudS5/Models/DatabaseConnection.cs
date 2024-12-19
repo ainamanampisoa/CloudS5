@@ -3,7 +3,7 @@ using Npgsql;
 
 public class DatabaseConnection
 {
-    private string postgresConnectionString = "Host=localhost;Database=clouds5;Username=postgres;Password=itu16;Pooling=true;";
+    private string postgresConnectionString = "Host=localhost;Database=clouds5;Username=postgres;Password=aina;Pooling=true;";
 
     public NpgsqlConnection GetPostgresConnection()
     {

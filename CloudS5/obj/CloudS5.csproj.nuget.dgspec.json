@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj": {}
+    "D:\\WORK\\CloudS5\\CloudS5\\CloudS5.csproj": {}
   },
   "projects": {
-    "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj": {
+    "D:\\WORK\\CloudS5\\CloudS5\\CloudS5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj",
+        "projectUniqueName": "D:\\WORK\\CloudS5\\CloudS5\\CloudS5.csproj",
         "projectName": "CloudS5",
-        "projectPath": "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\CloudS5.csproj",
-        "packagesPath": "C:\\Users\\ME-PC\\.nuget\\packages\\",
-        "outputPath": "R:\\S5\\Mr.Rojo\\Cloud\\CloudS5\\CloudS5\\obj\\",
+        "projectPath": "D:\\WORK\\CloudS5\\CloudS5\\CloudS5.csproj",
+        "packagesPath": "C:\\Users\\Aina Manampisoa\\.nuget\\packages\\",
+        "outputPath": "D:\\WORK\\CloudS5\\CloudS5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ME-PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Aina Manampisoa\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -54,6 +54,14 @@
             "Npgsql": {
               "target": "Package",
               "version": "[9.0.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
