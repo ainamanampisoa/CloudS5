@@ -43,6 +43,15 @@ app.UseSession();
 
 app.UseAuthorization();
 
+// Configurer Swagger dans le pipeline
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "API Documentation v1");
+    options.RoutePrefix = "swagger";  // Utiliser le chemin par défaut pour Swagger UI
+
+});
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

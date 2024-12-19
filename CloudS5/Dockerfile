@@ -11,6 +11,7 @@ RUN dotnet add package Npgsql
 RUN dotnet add package MailKit
 RUN dotnet add package MimeKit
 RUN dotnet add package Swashbuckle.AspNetCore
+RUN dotnet add package System.ComponentModel.Annotations
 
 
 # Copier tout le reste du code source et publier l'application
