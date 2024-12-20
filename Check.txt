@@ -12,3 +12,4 @@ Sécurisation : Hachage des mots de passe, gestion de la durée des sessions, et
 
 Swagger : Documenter l'API.
     État : À faire.
+

@@ -1,10 +1,11 @@
 var builder = WebApplication.CreateBuilder(args);
 
-
+    
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
     serverOptions.ListenAnyIP(5123);
 });
+
 // Ajouter les services nécessaires pour la session et l'injection de dépendances
 builder.Services.AddDistributedMemoryCache(); // Utilisation de la mémoire pour stocker les données de session
 builder.Services.AddSession(options =>
@@ -20,8 +21,13 @@ builder.Services.AddHttpContextAccessor(); // Ajout de l'accès au contexte HTTP
 
 // Ajouter les contrôleurs avec les vues
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddTransient<EmailService>();
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
+// Ajouter les services Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -29,7 +35,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // La valeur par défaut de HSTS est de 30 jours. Vous pouvez vouloir changer cela pour un environnement de production.
     app.UseHsts();
 }
 
@@ -42,6 +47,15 @@ app.UseRouting();
 app.UseSession();
 
 app.UseAuthorization();
+
+// Configurer Swagger dans le pipeline
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "API Documentation v1");
+    options.RoutePrefix = "swagger";  // Utiliser le chemin par défaut pour Swagger UI
+
+});
 
 app.MapControllerRoute(
     name: "default",
